@@ -2,13 +2,9 @@ import types
 
 
 def flat_generator(list_of_lists):
-    result = []
-    for i in list_of_lists:
-        if isinstance(i, list_of_lists):
-            result.extend(flat_generator(i))
-        else:
-            result.append(i)
-    return result
+    for sublist in list_of_lists:
+        for item in sublist:
+            yield item
 
 
 def test_2():
